@@ -1,0 +1,138 @@
+//1. Write a C++ program to declare a matrix of size 3*3 matrix of size, initialize the
+//matrix and display them. Also find the sum of matrix elements, sum of main
+//diagonal elements and secondary diagonal elements.
+#include <iostream> 
+using namespace std; 
+  
+const int MAX = 100; 
+  
+void printDiagonalSums(int mat[][MAX], int n) 
+{ 
+    int main = 0, secondary = 0; 
+    for (int i = 0; i < n; i++) { 
+        for (int j = 0; j < n; j++) { 
+  
+            
+            if (i == j) 
+                main += mat[i][j]; 
+  
+            
+            if ((i + j) == (n - 1)) 
+                secondary += mat[i][j]; 
+        } 
+    } 
+  
+    cout << "main Diagonal:" << main << endl; 
+    cout << "Secondary Diagonal:" << secondary << endl; 
+} 
+  
+// Driver code 
+int main() 
+{ 
+    int a[][MAX] = { { 1, 2, 3}, { 4 ,3 ,2  },  
+                    { 7 ,8 ,9 }}; 
+    printDiagonalSums(a, 3); 
+    return 0; 
+} 
+
+//2. Write a C++ program to find the sum of 2 integers using Pointers.
+#include <iostream> 
+using namespace std; 
+
+int main()
+{
+int f,s,*p,*q,sum;
+cout<<"Enter two integers to add\n";
+cin>>f>>s;
+p= &f;
+q=&s;
+sum= *p + *q;
+cout<<"Sum of 2 numbers="<< sum;
+return 0;
+}
+
+//3. Write a C++ program to enter the details of students and display them using
+//class and object. The details should be private in nature and use public members
+//function to access the private members.
+#include <iostream>
+using namespace std;
+
+class student
+{
+	private:
+		char  name[30];
+		int   rollNo;
+		
+	public:
+		
+		void getDetails(void);
+		
+		void putDetails(void);
+};
+
+//member function definition, outside of the class
+void student::getDetails(void){
+	cout << "Enter name: " ;
+	cin >> name;
+	cout << "Enter roll number: ";
+	cin >> rollNo;
+	
+}
+
+
+void student::putDetails(void){
+	cout << "Student details:\n";
+	cout << "Name:"<< name << ",Roll Number:" << rollNo ;
+}
+
+int main()
+{
+	student std;		//object creation
+	
+	std.getDetails();
+	std.putDetails();
+	
+	return 0;
+}
+
+//4. Write a C++ program to enter the details of students and display them using
+//class and object. The details should be private in nature and use public members
+//function to access the private members.(Define the member function outside the class).
+#include<iostream>
+using namespace std;
+class student
+{
+	private:
+		
+			char name[20],regd[10],branch[10];
+			int sem;
+	public:
+		void input();
+		void display();
+			
+		
+};
+void student::input()
+{
+	cout<<"Enter Name:";
+	cin>>name;
+	cout<<"Enter Regdno:";
+	cin>>regd;
+	cout<<"Enter Branch:";
+	cin>>branch;
+	cout<<"Enter Sem:";
+	cin>>sem;
+}
+void student::display()
+{
+	cout<<"\nName:"<<name;
+	cout<<"\nRegdno:"<<regd;
+	cout<<"\nBranch:"<<branch;
+	cout<<"\nSem:"<<sem;
+}
+int main()
+{
+	student s;
+	s.input();
+	s.display();
+}
